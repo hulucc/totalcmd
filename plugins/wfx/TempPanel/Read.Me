@@ -1,0 +1,112 @@
+Total Commander by Christian Ghisler  ( http://www.ghisler.com )
+
+TEMPRORARY PANEL plugin by Sergey Puljajev  ( gorbush@ukr.net )
+
+Used components:
+	XML Parser - Author  : Stefan Heymann, Site: http://www.destructor.de
+	TRegExpr library - Regular Expressions for Delphi,  Author: Andrey V. Sorokin, Site: http://anso.da.ru
+
+This plugin contains files with structure in one place, without actually copy files.
+It aggregates files and can be used to perform one operation on files, located elsewhere on disk or network.
+
+
+There some other functionality, i implemented:
+1) All file functions, except deleting - it just delete file name from internal list.
+		To Force delete file source on Moving operations (by default it's removed just from list of plugin), check option
+		"Physically move files from it's original locations"
+2) You can goto file by clicking on it or execute (action to process is defined in Properties dialog of plugin)
+3) Adding one file as indexed copies. That means, that repeating of adding the same file (i.e. file.txt)
+	will create listing of files like:
+		file.txt
+		file 1.txt
+		file 2.txt
+		file 3.txt
+		... etc.
+4) Import from file lists - just copy into temporary panel and plugin promts you "parse it?"
+ 	if you choose "No" - it just insert link to this file, if "Yes" - it parses file and inserts a directory
+	,named like file and contains all files, listed in it.
+	Import can be disabled by checkng "Import playlists as files" option in Properties dialog of plugin
+	Can be imported file such lists:
+	- .BPL and M3U files created by WinAmp media player
+	- .LST files created by DISKDIR WCX plugin.
+	- .DIR files created by Catalog Maker WCX plugin.
+	- .MLS files created for FlyVCD video player.
+	- .WinDIR files. How to create them described lower...
+
+
+  .WINDIR FILES DESCRIPTION
+WINDIR - this is just a dir listing, can be created by command: (For example if your cd-rom is drive Z:)
+1)    dir z:\  /S /B > cd_rom.WINDIR
+2)	Win NT:
+		dir z:\  /S /N > cd_rom.WINDIR
+	Win 9x
+		dir z:\  /S /V > cd_rom.WINDIR
+		dir z:\  /S > cd_rom.WINDIR
+
+First command just creates a list of files,
+but second - a list with file sizes (this way i hold a library of my cd-roms :)
+Second command can be executed be the several ways on Win 9x -
+with /W - Wide paramter and default format. On WinNT default format is like /B - Bare format.
+
+TO DO:
+Optimize speed
+Multi language interface support
+?
+
+History:
+   Features
+	+ Added
+	* Fixed
+	- Removed
+	# Changed
+
+Version 1.0           9.10.2003
+	* fixed copeing into root folder of plugin
+	* fixed interrupting of copy process
+	* fixed adding file list with a non-linear tree file structure
+
+Version 0.9 RC8pre   17.04.2003
+	+ added import from BPL winamp 3.0 playlist
+	+ added option to what to do on RETURN - "Go to file" or "Execute"
+
+Version 0.9 RC7  25.03.2003
+	* fixed Russian 866 charset recognition and converting into win1251
+	+ added import from .MLS - FlyVCD playlist
+	# adding duplicated files by index now starts from index (1)
+
+Version 0.9 RC6  25.03.2003
+	+ added configuration dialog
+	+ added option to add duplicate files by index or by overwrite old
+
+Version 0.9 RC5
+	* dialog to confirm parsing improved - Yes-No-YesToAll-NoToAll-Cancel
+	+ added import from DISKDIR playlist
+	+ added import from CATALOGMAKER playlist
+
+Version 0.9 RC4
+	* added some support of other languages and formats of date and time
+
+Version 0.9 RC3
+	* pluginicon changed :)
+	* fixed import from M3U winamp playlist (if not all items have cashed headers)
+	+ added import from PLS winamp playlist
+
+
+Version 0.9 RC2
+	* fixed file numbering if duplicated copied : now number added between name and extension
+	+ added icons extracting for real files icons
+
+
+Version 0.9
+	+ Import from wide file list on Win9x method 1
+	+ Import from wide file list on Win9x method 2
+	* Some fixes in file list hold - Descriptions of files now storing between sessions
+
+Version 0.8
+	+ Import from M3U file list
+	+ Import from simple file list
+	+ Import from wide file list on WinNT
+
+Version 0.1
+	+ Created simple panel list
+
